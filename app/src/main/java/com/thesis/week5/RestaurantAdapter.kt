@@ -3,6 +3,7 @@ package com.thesis.week5
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,6 +16,10 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
     private val GRID_ITEM = 1
     var isSwitchView : Boolean = true
 
+    interface RestaurantAdapterListener{
+        fun onClickCheckBox(Res: Restaurant)
+    }
+    var  listener : RestaurantAdapterListener? = null
     var data:List<Restaurant> = listOf()
         set(value) {
             field = value
@@ -43,6 +48,9 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
         holder.tvResName.text = item.name
         holder.tvResAddress.text = item.address
         holder.imgAvatar.setImageResource(item.avatar)
+        holder.HeartBox.setOnClickListener {
+            listener?.onClickCheckBox(item)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -63,8 +71,12 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
         val tvResName = itemView.findViewById<TextView>(R.id.tvResName)
         val tvResAddress = itemView.findViewById<TextView>(R.id.tvResAddress)
         val imgAvatar = itemView.findViewById<ImageView>(R.id.imageView)
+        val HeartBox = itemView.findViewById<CheckBox>(R.id.Heartbox)
     }
+    override fun getView(){
 
+
+    }
 
 
 }

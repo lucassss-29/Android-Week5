@@ -2,6 +2,7 @@ package com.thesis.week5
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -15,6 +16,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.thesis.week5.databinding.ActivityRestaurantBinding
 import kotlinx.android.synthetic.main.activity_restaurant.*
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ReportFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.android.synthetic.main.restaurant_item_view.*
 
 class RestaurantActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRestaurantBinding
@@ -22,7 +27,7 @@ class RestaurantActivity : AppCompatActivity() {
 
     private lateinit var adapter : RestaurantAdapter
     private lateinit var recyclerView: RecyclerView
-
+    private var count : Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,10 +37,39 @@ class RestaurantActivity : AppCompatActivity() {
 
         adapter = RestaurantAdapter()
         binding.rcList.adapter = adapter
-        adapter.data = getRestaurantDataSet()
+        adapter.listener = object : RestaurantAdapter.RestaurantAdapterListener{
+            override fun onClickCheckBox(Res: Restaurant) {
+                if (!Heartbox.isChecked) {
+                    count = count + 1
+                    Log.v(">>>>>>>>>>>", count.toString())
+                }else{
 
-        setupToolbar()
+                }
+            }
 
+        }
+        binding.navigationView.setOnNavigationItemReselectedListener {
+            when(it.itemId){
+                R.id.navigation_fav ->{
+
+                    true
+                }
+                R.id.navigation_top->{
+                    adapter.data = getRestaurantDataSet()
+                    setupToolbar()
+                    true
+                }
+                else -> false
+            }
+        }
+
+      //  loadFragment()
+    }
+    private fun loadFragment(fragment: Fragment){
+        val transacton = supportFragmentManager.beginTransaction()
+        transacton.replace(R.id.container,fragment)
+        transacton.addToBackStack(null)
+        transacton.commit()
     }
 
     fun setupToolbar(){
@@ -70,7 +104,7 @@ class RestaurantActivity : AppCompatActivity() {
                     item.title = "GRID"
                 }
                 else {
-                    binding.rcList.layoutManager = GridLayoutManager(this,3)
+                    binding.rcList.layoutManager = GridLayoutManager(this,2)
                     item.title = "LIST"
                 }
             }

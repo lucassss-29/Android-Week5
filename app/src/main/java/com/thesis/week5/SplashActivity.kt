@@ -8,7 +8,7 @@ import com.thesis.week5.activity.welcome.WelcomeActivity
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val intent = Intent(this, WelcomeActivity::class.java)
+        val intent = Intent(this, RestaurantActivity::class.java)
         startActivity(intent)
     }
 }
