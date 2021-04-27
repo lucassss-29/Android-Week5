@@ -73,10 +73,6 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
         val imgAvatar = itemView.findViewById<ImageView>(R.id.imageView)
         val HeartBox = itemView.findViewById<CheckBox>(R.id.Heartbox)
     }
-    override fun getView(){
-
-
-    }
 
 
 }
