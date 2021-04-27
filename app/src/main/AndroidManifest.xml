@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.boarding.BoardingOneActivity"
+            android:name=".onboarding.Onboarding1Activity"
             android:noHistory="true" />
         <activity
             android:name=".activity.boarding.BoardingTwoActivity"
