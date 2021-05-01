@@ -43,6 +43,5 @@ class SplashActivity : AppCompatActivity() {
                 add<Onboarding1Activity>(R.id.fragment_container_view)
             }
         }, 3000)
-
     }
 }
