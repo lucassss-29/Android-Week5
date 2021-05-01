@@ -24,14 +24,7 @@ import com.thesis.week5.onboarding.Onboarding1Activity
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide()
-
-        Handler().postDelayed({
-            val intent = Intent(this@SplashActivity, Onboarding1Activity::class.java)
-            startActivity(intent)
-            finish()
-
-        }, 1000)
-
+        val intent = Intent(this, RestaurantActivity::class.java)
+        startActivity(intent)
     }
 }

@@ -1,8 +1,10 @@
 package com.thesis.week5
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -15,12 +17,15 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
     private val GRID_ITEM = 1
     var isSwitchView : Boolean = true
 
-    var data:List<Restaurant> = listOf()
+    interface RestaurantAdapterListener{
+        fun onClickCheckBox(Res: Restaurant,isChecked:Boolean)
+    }
+    var  listener : RestaurantAdapterListener? = null
+    var data: List<Restaurant> = listOf()
         set(value) {
             field = value
             notifyDataSetChanged()
         }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ViewHolder {
         var layoutInflater = LayoutInflater.from(parent.context)
         if (viewType == GRID_ITEM)
@@ -43,12 +48,16 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
         holder.tvResName.text = item.name
         holder.tvResAddress.text = item.address
         holder.imgAvatar.setImageResource(item.avatar)
-    }
+        holder.heartBox.setChecked(item.fav)
+        holder.heartBox!!.setOnCheckedChangeListener{buttonView, isChecked ->
+            listener?.onClickCheckBox(item,isChecked)
+            item.fav = isChecked
+        }
 
+    }
     override fun getItemCount(): Int {
         return data.size
     }
-
     override fun getItemViewType(position: Int): Int {
 //        return if (mLayoutManager?.spanCount == 1) ViewType.LIST.ordinal
 //        else ViewType.GRID.ordinal
@@ -63,8 +72,8 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
         val tvResName = itemView.findViewById<TextView>(R.id.tvResName)
         val tvResAddress = itemView.findViewById<TextView>(R.id.tvResAddress)
         val imgAvatar = itemView.findViewById<ImageView>(R.id.imageView)
+        var heartBox = itemView.findViewById<CheckBox>(R.id.Heartbox)
     }
-
 
 
 }
