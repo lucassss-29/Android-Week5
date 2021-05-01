@@ -45,19 +45,15 @@
 
     <Button
         android:id="@+id/btn_onboarding1"
-        android:layout_width="90dp"
-        android:layout_height="95dp"
-        app:backgroundTint="#FE724C"
-        app:cornerRadius="100dp"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/round_button"
         app:icon="@drawable/group_87"
-        app:iconPadding="0dp"
-        app:iconSize="50dp"
-        app:iconTintMode="src_in"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.974" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

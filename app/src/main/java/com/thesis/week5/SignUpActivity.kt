@@ -11,23 +11,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.thesis.week5.databinding.ActivitySignUpBinding
 
-
-/**
- * Created by Viet Hua on 04/03/2021.
- */
-
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : Fragment() {
     private lateinit var binding : ActivitySignUpBinding
     private lateinit var viewModel: SignUpViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(
-            WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )
         setupViewModelBinding()
-
     }
 
     override fun onStop() {
