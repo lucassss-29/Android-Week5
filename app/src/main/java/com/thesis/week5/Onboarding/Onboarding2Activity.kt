@@ -1,4 +1,4 @@
-package com.thesis.week5.onboarding
+package com.thesis.week5.Onboarding
 
 import android.os.Bundle
 import android.view.LayoutInflater

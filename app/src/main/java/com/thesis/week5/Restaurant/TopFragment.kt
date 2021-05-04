@@ -1,16 +1,13 @@
-package com.thesis.week5
+package com.thesis.week5.Restaurant
 
 import android.os.Bundle
 import android.view.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.thesis.week5.databinding.ActivityRestaurantBinding
+import com.thesis.week5.AddRestaurantData
+import com.thesis.week5.R
+import com.thesis.week5.RemoveRestaurantData
 import com.thesis.week5.databinding.FragmentFavBinding
-import kotlinx.android.synthetic.main.activity_restaurant.*
-import kotlinx.android.synthetic.main.fragment_fav.*
+import com.thesis.week5.setFavouriteChecked
 import kotlinx.android.synthetic.main.fragment_fav.rcList
 
 class TopFragment : Fragment() {
@@ -31,15 +28,15 @@ class TopFragment : Fragment() {
             ResAdapter = RestaurantAdapter()
             adapter = ResAdapter
             ResAdapter.listener = object : RestaurantAdapter.RestaurantAdapterListener {
-                override fun onClickCheckBox(Res: Restaurant,isChecked:Boolean) {
+                override fun onClickCheckBox(Res: Restaurant, isChecked:Boolean) {
                     if (isChecked) {
-                        addRestaurantData(Res)
+                        AddRestaurantData(Res)
                     } else {
                         RemoveRestaurantData(Res)
                     }
                 }
             }
-            ResAdapter.data = setFAV()
+            ResAdapter.data = setFavouriteChecked()
         }
     }
 

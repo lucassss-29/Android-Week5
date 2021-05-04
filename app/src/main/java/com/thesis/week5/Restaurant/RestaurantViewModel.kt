@@ -1,4 +1,4 @@
-package com.thesis.week5
+package com.thesis.week5.Restaurant
 
 import androidx.lifecycle.ViewModel
 

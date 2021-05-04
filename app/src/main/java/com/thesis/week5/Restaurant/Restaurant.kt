@@ -1,4 +1,4 @@
-package com.thesis.week5
+package com.thesis.week5.Restaurant
 
 class Restaurant (val name:String, val address : String, val avatar : Int, var fav : Boolean) {
     override fun equals(other: Any?): Boolean {

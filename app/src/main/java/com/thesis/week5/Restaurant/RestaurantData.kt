@@ -1,6 +1,6 @@
 package com.thesis.week5
 
-import android.util.Log
+import com.thesis.week5.Restaurant.Restaurant
 
 fun getRestaurantDataSet(): List<Restaurant>{
     return listOf(
@@ -28,7 +28,7 @@ fun getRestaurantDataSet(): List<Restaurant>{
 }
 private val arrayListtemp = mutableListOf<Restaurant>()
 
-fun addRestaurantData(res: Restaurant) {
+fun AddRestaurantData(res: Restaurant) {
     arrayListtemp.add(res)
 }
 fun RemoveRestaurantData(res: Restaurant){
@@ -43,11 +43,11 @@ private fun <E> MutableList<E>.add(element: List<E>) {
 
 }
 
-fun getdataRestaurant(): List<Restaurant> {
+fun GetRestaurantData(): List<Restaurant> {
     return arrayListtemp
 }
 
-fun setFAV(): List<Restaurant> {
+fun setFavouriteChecked(): List<Restaurant> {
     var data: List<Restaurant> = getRestaurantDataSet()
     for(item in data){
         arrayListtemp.forEach { item1 ->

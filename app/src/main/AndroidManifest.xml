@@ -9,8 +9,8 @@
         android:roundIcon="@mipmap/ic_app_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidChallengeW3">
-        <activity android:name="com.thesis.week5.RestaurantActivity"></activity>
-        <activity android:name="com.thesis.week5.Restaurant" />
+        <activity android:name="com.thesis.week5.Restaurant.RestaurantActivity"></activity>
+        <activity android:name="com.thesis.week5.Restaurant.Restaurant" />
         <activity android:name=".WelcomeActivity" />
         <activity
             android:name="com.thesis.week5.SplashActivity"
@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".onboarding.Onboarding1Activity"
+            android:name=".Onboarding.Onboarding1Activity"
             android:noHistory="true" />
         <activity
-            android:name=".onboarding.Boarding2Activity"
+            android:name=".Onboarding.Boarding2Activity"
             android:noHistory="true" />
         <activity
             android:name=".activity.boarding.BoardingThreeActivity"

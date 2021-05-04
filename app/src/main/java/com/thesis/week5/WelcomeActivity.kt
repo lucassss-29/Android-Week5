@@ -2,6 +2,7 @@ package com.thesis.week5.activity.welcome
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,15 +43,16 @@ class WelcomeActivity : Fragment() {
         btnStart = view.findViewById(R.id.btn_start)
         btnSignIn = view.findViewById(R.id.btn_sign_in)
 
-//        btnStart.setOnClickListener {
-//            parentFragmentManager.commit {
-//                setReorderingAllowed(true)
-//                replace<SignUpActivity>(R.id.fragment_container_view)
-//                addToBackStack(null)
-//            }
-//        }
+        btnStart.setOnClickListener {
+            parentFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace<SignUpActivity>(R.id.fragment_container_view)
+                addToBackStack(null)
+            }
+        }
 
         btnSignIn.setOnClickListener {
+            Log.e("son","sign in button")
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
                 replace<SignInActivity>(R.id.fragment_container_view)

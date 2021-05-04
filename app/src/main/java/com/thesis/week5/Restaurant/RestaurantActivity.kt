@@ -1,33 +1,21 @@
-package com.thesis.week5
+package com.thesis.week5.Restaurant
 
-import android.graphics.Insets
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import androidx.annotation.RequiresApi
-//import android.widget.Toolbar
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.thesis.week5.databinding.ActivityRestaurantBinding
-import kotlinx.android.synthetic.main.activity_restaurant.*
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.add
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
-import androidx.lifecycle.ReportFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_restaurant.rcList
-import kotlinx.android.synthetic.main.fragment_fav.*
-import kotlinx.android.synthetic.main.restaurant_item_view.*
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
+import com.thesis.week5.R
+import com.thesis.week5.databinding.ActivityRestaurantBinding
 
 class RestaurantActivity : AppCompatActivity() {
     private lateinit var binding : ActivityRestaurantBinding
@@ -85,20 +73,20 @@ class RestaurantActivity : AppCompatActivity() {
         inflater.inflate(R.menu.main_menu,menu)
         return true
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.change_layout -> {
-                val isLinearSwitched : Boolean = adapter.toggleItemViewType()
-                if (isLinearSwitched){
-                    rcList.layoutManager = LinearLayoutManager(this)
-                    item.title = "GRID"
-                }
-                else {
-                    rcList.layoutManager = GridLayoutManager(this,2)
-                    item.title = "LIST"
-                }
-            }
-        }
-        return  true
-    }
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        when (item.itemId) {
+//            R.id.change_layout -> {
+//                val isLinearSwitched : Boolean = adapter.toggleItemViewType()
+//                if (isLinearSwitched){
+//                    rcList.layoutManager = LinearLayoutManager(this)
+//                    item.title = "GRID"
+//                }
+//                else {
+//                    rcList.layoutManager = GridLayoutManager(this,2)
+//                    item.title = "LIST"
+//                }
+//            }
+//        }
+//        return  true
+//    }
 }

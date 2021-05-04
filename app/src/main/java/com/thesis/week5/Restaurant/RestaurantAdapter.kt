@@ -1,6 +1,5 @@
-package com.thesis.week5
+package com.thesis.week5.Restaurant
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +7,7 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.thesis.week5.R
 
 class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
 
@@ -18,7 +18,7 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
     var isSwitchView : Boolean = true
 
     interface RestaurantAdapterListener{
-        fun onClickCheckBox(Res: Restaurant,isChecked:Boolean)
+        fun onClickCheckBox(Res: Restaurant, isChecked:Boolean)
     }
     var  listener : RestaurantAdapterListener? = null
     var data: List<Restaurant> = listOf()
