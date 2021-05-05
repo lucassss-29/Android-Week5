@@ -12,10 +12,11 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.thesis.week5.Restaurant.RestaurantActivity
 import com.thesis.week5.databinding.ActivitySignInBinding
 
 
-class SignInActivity : Fragment() {
+class SignInFragment : Fragment() {
 
     companion object {
         const val USER_KEY = "USER_KEY"
@@ -44,7 +45,8 @@ class SignInActivity : Fragment() {
             btnSignUp.setOnClickListener {
                 parentFragmentManager.commit {
                     setReorderingAllowed(true)
-                    replace<SignUpActivity>(R.id.fragment_container_view)
+                    setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+                    replace<SignUpFragment>(R.id.fragment_container_view)
                     addToBackStack(null)
                 }
             }
@@ -54,7 +56,7 @@ class SignInActivity : Fragment() {
         viewModel.isSignInSucceed.observe(viewLifecycleOwner, Observer { user ->
             user?.let {
                 showToastMessage("Sign in Successful")
-//                startRestaurantActivity(user)
+                startRestaurantActivity(user)
             }
 
         })
@@ -68,43 +70,11 @@ class SignInActivity : Fragment() {
 
     }
 
-//    private fun setupViewModelBinding() {
-////        viewModel = ViewModelProvider(this).get(SignInViewModel::class.java)
-////        binding.lifecycleOwner = this
-////        binding.signInViewModel = viewModel
-//        binding.apply {
-//            btnSignUp.setOnClickListener {
-//                parentFragmentManager.commit {
-//                    setReorderingAllowed(true)
-////                    replace<SignUpActivity>(R.id.fragment_container_view)
-//                    addToBackStack(null)
-//                }
-//            }
-//
-//        }
-//
-//        viewModel.isSignInSucceed.observe(viewLifecycleOwner, Observer { user ->
-//            user?.let {
-//                showToastMessage("Sign in Successful")
-////                startRestaurantActivity(user)
-//            }
-//
-//        })
-//
-//        viewModel.errorMessage.observe(viewLifecycleOwner, Observer { message ->
-//            message?.let {
-//                showToastMessage(message)
-//            }
-//        })
-
         private fun startRestaurantActivity(user: User) {
         val bundle = Bundle()
         bundle.putParcelable(USER_KEY, user)
-//            parentFragmentManager.commit {
-//                setReorderingAllowed(true)
-//                replace<RestaurantActivity>(R.id.fragment_container_view)
-//                addToBackStack(null)
-//            }
+            val intent = Intent(activity, RestaurantActivity::class.java)
+            startActivity(intent)
         }
 
         private fun showToastMessage(value: String) {

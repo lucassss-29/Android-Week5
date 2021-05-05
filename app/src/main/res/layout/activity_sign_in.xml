@@ -37,7 +37,7 @@
                 android:id="@+id/tv_sign_in"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/distance_180dp"
+                android:layout_marginTop="100dp"
                 android:fontFamily="@font/sofia_pro_semi_bold"
                 android:text="@string/activity_sign_in_title"
                 android:textColor="@color/black"
@@ -188,9 +188,10 @@
                 android:textSize="@dimen/size_14sp"
                 app:layout_constraintBottom_toTopOf="@+id/btn_facebook"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_no_account"
-                app:layout_constraintVertical_bias="0.8" />
+                app:layout_constraintVertical_bias="0.416" />
 
             <View
                 android:id="@+id/view_left_bar"
@@ -218,6 +219,7 @@
                 android:id="@+id/btn_facebook"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/rounded_button"
                 android:fontFamily="@font/sofia_pro_medium"
                 android:paddingHorizontal="@dimen/distance_30dp"
@@ -237,6 +239,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/distance_10dp"
+                android:layout_marginBottom="40dp"
                 android:background="@drawable/rounded_button"
                 android:fontFamily="@font/sofia_pro_medium"
                 android:paddingHorizontal="@dimen/distance_30dp"

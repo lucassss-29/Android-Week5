@@ -7,6 +7,7 @@ import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.thesis.week5.R
 
 class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
@@ -47,7 +48,10 @@ class RestaurantAdapter:RecyclerView.Adapter<RestaurantAdapter.ViewHolder>() {
         val item = data[position]
         holder.tvResName.text = item.name
         holder.tvResAddress.text = item.address
-        holder.imgAvatar.setImageResource(item.avatar)
+        Glide.with(view)
+            .load(item.avatar)
+            .into(holder.imgAvatar)
+//        holder.imgAvatar.setImageResource(item.avatar)
         holder.heartBox.setChecked(item.fav)
         holder.heartBox!!.setOnCheckedChangeListener{buttonView, isChecked ->
             listener?.onClickCheckBox(item,isChecked)

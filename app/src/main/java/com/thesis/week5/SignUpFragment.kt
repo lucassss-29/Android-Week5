@@ -1,7 +1,6 @@
 package com.thesis.week5
 
 import android.os.Bundle
-import android.text.BoringLayout
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +12,9 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.observe
 import com.thesis.week5.databinding.ActivitySignUpBinding
 
-class SignUpActivity : Fragment() {
+class SignUpFragment : Fragment() {
     private lateinit var binding : ActivitySignUpBinding
     private lateinit var viewModel: SignUpViewModel
 
@@ -40,7 +38,8 @@ class SignUpActivity : Fragment() {
             Log.e("son", "sign in button")
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<SignInActivity>(R.id.fragment_container_view)
+                setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+                replace<SignInFragment>(R.id.fragment_container_view)
                 addToBackStack(null)
             }
 
@@ -49,7 +48,8 @@ class SignUpActivity : Fragment() {
         binding.btnSignIn.setOnClickListener {
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<SignInActivity>(R.id.fragment_container_view)
+                setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+                replace<SignInFragment>(R.id.fragment_container_view)
                 addToBackStack(null)
             }
         }
@@ -75,37 +75,12 @@ class SignUpActivity : Fragment() {
         viewModel.clear()
     }
 
-//    private fun setupViewModelBinding() {
-//        viewModel = ViewModelProvider(this).get(SignUpViewModel::class.java)
-//        binding.lifecycleOwner = this
-//        binding.signUpViewModel = viewModel
-//        binding.apply {
-//            button.setOnClickListener {
-//                startLoginActivity()
-//            }
-//        }
-//
-//        viewModel.isSignUpSucceed.observe(viewLifecycleOwner, Observer {
-//            it?.let {
-//                if (it) {
-//                    showToastMessage("Sign Up Successful")
-//                    startLoginActivity()
-//                }
-//            }
-//        })
-//
-//        viewModel.errorMessage.observe(viewLifecycleOwner, Observer { message ->
-//            message?.let {
-//                Toast.makeText(requireActivity(), message, Toast.LENGTH_SHORT).show()
-//            }
-//        })
-//
-//    }
 
     private fun startSignInActivity() {
         parentFragmentManager.commit {
             setReorderingAllowed(true)
-            replace<SignInActivity>(R.id.fragment_container_view)
+            setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+            replace<SignInFragment>(R.id.fragment_container_view)
             addToBackStack(null)
         }
     }

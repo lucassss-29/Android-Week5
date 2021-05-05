@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.thesis.week5">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -23,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Onboarding.Onboarding1Activity"
+            android:name=".Onboarding.Onboarding1Fragment"
             android:noHistory="true" />
         <activity
             android:name=".Onboarding.Boarding2Activity"
@@ -32,12 +34,12 @@
             android:name=".activity.boarding.BoardingThreeActivity"
             android:noHistory="true" />
         <activity
-            android:name="com.thesis.week5.activity.welcome.WelcomeActivity"
+            android:name="com.thesis.week5.activity.welcome.WelcomeFragment"
             android:noHistory="true" />
         <activity
-            android:name="com.thesis.week5.SignUpActivity"
+            android:name="com.thesis.week5.SignUpFragment"
             android:noHistory="true" />
-        <activity android:name="com.thesis.week5.SignInActivity" />
+        <activity android:name="com.thesis.week5.SignInFragment" />
         <activity android:name=".activity.profile.ProfileActivity" />
     </application>
 

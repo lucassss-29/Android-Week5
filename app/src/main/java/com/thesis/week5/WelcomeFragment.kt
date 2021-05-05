@@ -1,24 +1,20 @@
 package com.thesis.week5.activity.welcome
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import androidx.appcompat.app.AppCompatActivity
 import com.thesis.week5.R
 import com.google.android.material.button.MaterialButton
 import android.widget.TextView
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
-import com.thesis.week5.SignInActivity
-import com.thesis.week5.SignUpActivity
+import com.thesis.week5.SignInFragment
+import com.thesis.week5.SignUpFragment
 import androidx.fragment.app.replace
 
-class WelcomeActivity : Fragment() {
+class WelcomeFragment : Fragment() {
     private lateinit var btnStart : MaterialButton
     private lateinit var btnSignIn: TextView
 
@@ -31,13 +27,6 @@ class WelcomeActivity : Fragment() {
         return view
     }
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN)
-//        findViewsById()
-//        setupViews()
-//    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         btnStart = view.findViewById(R.id.btn_start)
@@ -46,7 +35,8 @@ class WelcomeActivity : Fragment() {
         btnStart.setOnClickListener {
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<SignUpActivity>(R.id.fragment_container_view)
+                setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+                replace<SignUpFragment>(R.id.fragment_container_view)
                 addToBackStack(null)
             }
         }
@@ -55,27 +45,11 @@ class WelcomeActivity : Fragment() {
             Log.e("son","sign in button")
             parentFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<SignInActivity>(R.id.fragment_container_view)
+                setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+                replace<SignInFragment>(R.id.fragment_container_view)
                 addToBackStack(null)
             }
         }
     }
 
     }
-
-//    private fun findViewsById(){
-//        btnStart = findViewById(R.id.btn_start)
-//        btnSignIn = findViewById(R.id.btn_sign_in)
-//    }
-//
-//    private fun setupViews(){
-//        btnStart.setOnClickListener {
-//            val intent = Intent(this, SignUpActivity::class.java)
-//            startActivity(intent)
-//        }
-//
-//        btnSignIn.setOnClickListener {
-//            val intent = Intent(this, SignInActivity::class.java)
-//            startActivity(intent)
-//        }
-//    }

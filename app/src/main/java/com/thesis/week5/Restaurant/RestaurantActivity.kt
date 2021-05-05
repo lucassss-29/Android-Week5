@@ -43,6 +43,7 @@ class RestaurantActivity : AppCompatActivity() {
                 R.id.navigation_fav ->{
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
+                        setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
                         replace<FavoriteFragment>(R.id.fragment_container_view)
                         addToBackStack(null)
 
@@ -52,6 +53,7 @@ class RestaurantActivity : AppCompatActivity() {
                 R.id.navigation_top->{
                     supportFragmentManager.commit {
                         setReorderingAllowed(true)
+                        setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right)
                         replace<TopFragment>(R.id.fragment_container_view)
                         addToBackStack(null)
                     }

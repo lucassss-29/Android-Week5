@@ -10,7 +10,7 @@ import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.thesis.week5.R
 
-class Onboarding1Activity: Fragment() {
+class Onboarding1Fragment: Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -26,7 +26,8 @@ class Onboarding1Activity: Fragment() {
         button.setOnClickListener {
         parentFragmentManager.commit {
             setReorderingAllowed(true)
-            replace<Onboarding2Activity>(R.id.fragment_container_view)
+            setCustomAnimations(R.anim.slide_in, R.anim.fade_out, R.anim.fade_in, R.anim.slide_out)
+            replace<Onboarding2Fragment>(R.id.fragment_container_view)
             addToBackStack(null)
         }
         }

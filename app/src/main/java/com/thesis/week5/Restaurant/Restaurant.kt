@@ -1,6 +1,6 @@
 package com.thesis.week5.Restaurant
 
-class Restaurant (val name:String, val address : String, val avatar : Int, var fav : Boolean) {
+class Restaurant (val name:String, val address : String, val avatar : String, var fav : Boolean) {
     override fun equals(other: Any?): Boolean {
         return super.equals(other)
     }

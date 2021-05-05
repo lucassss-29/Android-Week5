@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#2FD3D3D3"
-    android:backgroundTint="#FFFFFF">
+    android:background="#97DFD5D2"
+    android:backgroundTint="#B59C9D9E">
 
 
     <androidx.cardview.widget.CardView
